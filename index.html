@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link href="/lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
   <link href="/lib/lightbox/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="/css/style.css" rel="stylesheet"><!-- Google tag (gtag.js) -->
   <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-YP0CTJT9KN"></script>
   <script type="text/partytown">
@@ -88,6 +89,28 @@
     .hover-image[data-astro-cid-f4rnaerg] {
       transition: transform .5s
     }
+
+    .portfolio-slider .portfolio-img img {
+      width: 100%;
+      height: 900px;
+      object-fit: fill;
+    }
+
+    .hero-slider {
+      height: 900px;
+      width: 100%;
+    }
+
+    .hero-slider .hero-image {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .hero-slider .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
   </style>
   <script type="module" src="/_astro/hoisted.COFrN1Jd.js"></script>
   <script>!(function (w, p, f, c) { if (!window.crossOriginIsolated && !navigator.serviceWorker) return; c = w[p] = Object.assign(w[p] || {}, { "lib": "/~partytown/", "debug": false }); c[f] = (c[f] || []).concat(["dataLayer.push"]) })(window, 'partytown', 'forward');/* Partytown 0.10.2 - MIT builder.io */
@@ -101,9 +124,42 @@
   <script src="/lib/wow/wow.min.js"></script>
   <script src="/lib/waypoints/waypoints.min.js"></script>
   <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="/lib/isotope/isotope.pkgd.min.js"></script>
   <script src="/lib/lightbox/lightbox.min.js"></script>
   <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var swiper = new Swiper(".portfolio-slider", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          992: { slidesPerView: 3 },
+        },
+      });
+      var heroSwiper = new Swiper(".hero-slider", {
+        effect: "fade",
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    });
+  </script>
 </body>
 
 </html>
@@ -132,9 +188,22 @@
 <div class="hero" id="home" data-astro-cid-f4rnaerg>
   <div class="container-fluid" data-astro-cid-f4rnaerg>
     <div class="row align-items-center" data-astro-cid-f4rnaerg>
-      <div class="col-sm-12 col-md-6  d-md-block" data-astro-cid-f4rnaerg>
-        <div class="hero-image" data-astro-cid-f4rnaerg> <img src="img/app1.jpeg" class="App-logo hover-image"
-            alt="Logo React" height="500" data-astro-cid-f4rnaerg> </div>
+      <div class="col-sm-12 col-md-6 d-md-block" data-astro-cid-f4rnaerg>
+        <div class="swiper hero-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="hero-image" data-astro-cid-f4rnaerg>
+                <img src="img/app1.jpeg" class="App-logo hover-image" alt="Aplicación móvil" data-astro-cid-f4rnaerg>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="hero-image" data-astro-cid-f4rnaerg>
+                <img src="img/sistemaValores.jpeg" class="App-logo hover-image" alt="Sistema de valores" data-astro-cid-f4rnaerg>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
       <div class="col-sm-12 col-md-6" data-astro-cid-f4rnaerg>
         <div class="hero-content" data-astro-cid-f4rnaerg>
@@ -142,8 +211,9 @@
             <h2 data-astro-cid-f4rnaerg>Arquitecto de software | Desarrollador FullStack | Desarrollador Mobile |
               Inteligencia Artifical</h2>
           </div>
-          <div class="hero-btn" data-astro-cid-f4rnaerg> <!-- icon whatsapp --> <a href="https://api.whatsapp.com/send?phone=34674916759&text=GuillermoGuzmaDeveloper%3A"
-              class="btn" target="_blank" rel="noopener noreferrer" data-astro-cid-f4rnaerg> <i class="fab fa-whatsapp"
+          <div class="hero-btn" data-astro-cid-f4rnaerg> <!-- icon whatsapp --> <a
+              href="https://api.whatsapp.com/send?phone=34674916759&text=GuillermoGuzmaDeveloper%3A" class="btn"
+              target="_blank" rel="noopener noreferrer" data-astro-cid-f4rnaerg> <i class="fab fa-whatsapp"
                 data-astro-cid-f4rnaerg></i> Contactame
             </a> <!-- icon linkedin --> <a href="https://www.linkedin.com/in/nemerfrozen/" class="btn" target="_blank"
               rel="noopener noreferrer" data-astro-cid-f4rnaerg> <i class="fab fa-linkedin" data-astro-cid-f4rnaerg></i>
@@ -421,89 +491,94 @@
   <div class="container">
     <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s"
       style="visibility: visible; animation-delay: 0.1s;">
-      <p>Mi portafolio</p>
-      <h2></h2>
+      <p>Mi Portafolio</p>
     </div>
     <div class="row"></div>
-    <div class="row portfolio-container" style="position: relative; height: 520px;">
-      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2" data-wow-delay="0.2s">
-        <div class="portfolio-wrap">
-          <div class="portfolio-img"> <img src="/static/media/rues.png" class="img-fluid"
-              alt="RUES - Registro Unico Empresarial" height="200" width="200"> </div>
-          <div class="portfolio-text">
-            <h3>RUES - Registro Unico Empresarial</h3> <a class="btn" href="https://rues.org.co/" target="_blank">+</a>
+    <div class="swiper portfolio-slider" style="padding-bottom: 50px;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide portfolio-item filter-2" data-wow-delay="0.2s">
+          <div class="portfolio-wrap">
+            <div class="portfolio-img"> <img src="/static/media/rues.png" class="img-fluid"
+                alt="RUES - Registro Unico Empresarial" height="200" width="200"> </div>
+            <div class="portfolio-text">
+              <h3>RUES - Registro Unico Empresarial</h3> <a class="btn" href="https://rues.org.co/"
+                target="_blank">+</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide portfolio-item filter-2" data-wow-delay="0.2s">
+          <div class="portfolio-wrap">
+            <div class="portfolio-img"> <img src="/static/media/cecl.png" class="img-fluid"
+                alt="Sistema Evaluacion UQAM" height="200" width="200"> </div>
+            <div class="portfolio-text">
+              <h3>Sistema Evaluacion UQAM</h3> <a class="btn" href="https://evaluation.cecl.uqam.ca/login"
+                target="_blank">+</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide portfolio-item filter-2" data-wow-delay="0.2s">
+          <div class="portfolio-wrap">
+            <div class="portfolio-img"> <img src="/static/media/rickandmorty.15672a106e740c70df48.png" class="img-fluid"
+                alt="Rick&#38;Morty" height="200" width="200"> </div>
+            <div class="portfolio-text">
+              <h3>Rick&amp;Morty</h3> <a class="btn"
+                href="http://rickandmortynemer.s3-website.eu-central-1.amazonaws.com/" target="_blank">+</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide portfolio-item filter-2" data-wow-delay="0.2s">
+          <div class="portfolio-wrap">
+            <div class="portfolio-img"> <img src="/static/media/rayosx.cbe25c949ec1a5f8d8ef.png" class="img-fluid"
+                alt="Plataforma Rayos X" height="200" width="200"> </div>
+            <div class="portfolio-text">
+              <h3>Plataforma Rayos X</h3> <a class="btn"
+                href="http://181.58.254.218:8085/RayosX/Account/Login?ReturnUrl=%2FRayosX%2Fstudies%2F"
+                target="_blank">+</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide portfolio-item filter-2" data-wow-delay="0.2s">
+          <div class="portfolio-wrap">
+            <div class="portfolio-img"> <img src="/static/media/casitas.adee27ed13022b8537c1.png" class="img-fluid"
+                alt="Las casitas (Barcelona)" height="200" width="200"> </div>
+            <div class="portfolio-text">
+              <h3>Las casitas (Barcelona)</h3> <a class="btn" href="http://lascasitasludoteca.es/" target="_blank">+</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide portfolio-item filter-2" data-wow-delay="0.2s">
+          <div class="portfolio-wrap">
+            <div class="portfolio-img"> <img src="/static/media/matrix.08d1332905a5ba7feeec.png" class="img-fluid"
+                alt="Apuestas y Giros Matrix" height="200" width="200"> </div>
+            <div class="portfolio-text">
+              <h3>Apuestas y Giros Matrix</h3> <a class="btn" href="http://jer.awsqa.matrixtech.com.co/"
+                target="_blank">+</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide portfolio-item filter-2" data-wow-delay="0.2s">
+          <div class="portfolio-wrap">
+            <div class="portfolio-img"> <img src="/static/media/test-school.c671062983c2fd53f976.png" class="img-fluid"
+                alt="Test-school" height="200" width="200"> </div>
+            <div class="portfolio-text">
+              <h3>Test-school</h3> <a class="btn" href="http://test-school-us.s3-website-us-east-1.amazonaws.com/login"
+                target="_blank">+</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide portfolio-item filter-2" data-wow-delay="0.2s">
+          <div class="portfolio-wrap">
+            <div class="portfolio-img"> <img src="/static/media/citas.e29686c8fec63e666585.png" class="img-fluid"
+                alt="Citas web (esenorte)" height="200" width="200"> </div>
+            <div class="portfolio-text">
+              <h3>Citas web (esenorte)</h3> <a class="btn" href="/#" target="_blank">+</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2" data-wow-delay="0.2s">
-        <div class="portfolio-wrap">
-          <div class="portfolio-img"> <img src="/static/media/cecl.png" class="img-fluid" alt="Sistema Evaluacion UQAM"
-              height="200" width="200"> </div>
-          <div class="portfolio-text">
-            <h3>Sistema Evaluacion UQAM</h3> <a class="btn" href="https://evaluation.cecl.uqam.ca/login"
-              target="_blank">+</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2" data-wow-delay="0.2s">
-        <div class="portfolio-wrap">
-          <div class="portfolio-img"> <img src="/static/media/rickandmorty.15672a106e740c70df48.png" class="img-fluid"
-              alt="Rick&#38;Morty" height="200" width="200"> </div>
-          <div class="portfolio-text">
-            <h3>Rick&amp;Morty</h3> <a class="btn"
-              href="http://rickandmortynemer.s3-website.eu-central-1.amazonaws.com/" target="_blank">+</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2" data-wow-delay="0.2s">
-        <div class="portfolio-wrap">
-          <div class="portfolio-img"> <img src="/static/media/rayosx.cbe25c949ec1a5f8d8ef.png" class="img-fluid"
-              alt="Plataforma Rayos X" height="200" width="200"> </div>
-          <div class="portfolio-text">
-            <h3>Plataforma Rayos X</h3> <a class="btn"
-              href="http://181.58.254.218:8085/RayosX/Account/Login?ReturnUrl=%2FRayosX%2Fstudies%2F"
-              target="_blank">+</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2" data-wow-delay="0.2s">
-        <div class="portfolio-wrap">
-          <div class="portfolio-img"> <img src="/static/media/casitas.adee27ed13022b8537c1.png" class="img-fluid"
-              alt="Las casitas (Barcelona)" height="200" width="200"> </div>
-          <div class="portfolio-text">
-            <h3>Las casitas (Barcelona)</h3> <a class="btn" href="http://lascasitasludoteca.es/" target="_blank">+</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2" data-wow-delay="0.2s">
-        <div class="portfolio-wrap">
-          <div class="portfolio-img"> <img src="/static/media/matrix.08d1332905a5ba7feeec.png" class="img-fluid"
-              alt="Apuestas y Giros Matrix" height="200" width="200"> </div>
-          <div class="portfolio-text">
-            <h3>Apuestas y Giros Matrix</h3> <a class="btn" href="http://jer.awsqa.matrixtech.com.co/"
-              target="_blank">+</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2" data-wow-delay="0.2s">
-        <div class="portfolio-wrap">
-          <div class="portfolio-img"> <img src="/static/media/test-school.c671062983c2fd53f976.png" class="img-fluid"
-              alt="Test-school" height="200" width="200"> </div>
-          <div class="portfolio-text">
-            <h3>Test-school</h3> <a class="btn" href="http://test-school-us.s3-website-us-east-1.amazonaws.com/login"
-              target="_blank">+</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2" data-wow-delay="0.2s">
-        <div class="portfolio-wrap">
-          <div class="portfolio-img"> <img src="/static/media/citas.e29686c8fec63e666585.png" class="img-fluid"
-              alt="Citas web (esenorte)" height="200" width="200"> </div>
-          <div class="portfolio-text">
-            <h3>Citas web (esenorte)</h3> <a class="btn" href="/#" target="_blank">+</a>
-          </div>
-        </div>
-      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </div>
 </div> <a href="#" class="btn back-to-top" style="display: inline; opacity: 0.777531;"><i
