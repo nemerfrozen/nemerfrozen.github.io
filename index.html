@@ -62,7 +62,7 @@
       font-weight: 500
     }
 
-    .hero-image[data-astro-cid-f4rnaerg] {
+    .hero-image-apk[data-astro-cid-f4rnaerg] {
       width: 100%;
       height: 100%;
       border-radius: 20%
@@ -82,23 +82,29 @@
       }
     }
 
-    .hero-image[data-astro-cid-f4rnaerg] {
+    .hero-image-apk[data-astro-cid-f4rnaerg] {
       animation: Rotate 2s infinite
     }
 
-    .hover-image[data-astro-cid-f4rnaerg] {
+    .hover-image-apk[data-astro-cid-f4rnaerg] {
       transition: transform .5s
     }
 
     .portfolio-slider .portfolio-img img {
       width: 100%;
-      height: 900px;
-      object-fit: fill;
+      height: 200px;
+      object-fit: cover;
     }
 
     .hero-slider {
-      height: 900px;
+      height: 450px;
       width: 100%;
+    }
+
+    .hero-image-apk {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero-slider .hero-image {
@@ -109,7 +115,7 @@
     .hero-slider .hero-image img {
       width: 100%;
       height: 100%;
-      object-fit: fill;
+      object-fit: cover;
     }
   </style>
   <script type="module" src="/_astro/hoisted.COFrN1Jd.js"></script>
@@ -192,13 +198,11 @@
         <div class="swiper hero-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="hero-image" data-astro-cid-f4rnaerg>
-                <img src="img/app1.jpeg" class="App-logo hover-image" alt="Aplicación móvil" data-astro-cid-f4rnaerg>
+              <div class="hero-image" data-astro-cid-f4rnaerg> <img src="img/app1.jpeg" class="hover-image" alt="Aplicación móvil" data-astro-cid-f4rnaerg>
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="hero-image" data-astro-cid-f4rnaerg>
-                <img src="img/sistemaValores.jpeg" class="App-logo hover-image" alt="Sistema de valores" data-astro-cid-f4rnaerg>
+              <div class="hero-image" data-astro-cid-f4rnaerg> <img src="img/sistemaValores.jpeg" class="hover-image" alt="Sistema de valores" data-astro-cid-f4rnaerg>
               </div>
             </div>
           </div>
